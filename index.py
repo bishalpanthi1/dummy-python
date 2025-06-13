@@ -1,12 +1,13 @@
+import os
 from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    my_secret = os.environ.get('MY_SECRET', 'default-value')
+    return f'Hello World! Secret is: {my_secret}'
 
 if __name__ == '__main__':
-    # Get the PORT from Render environment or fallback to 5000
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
