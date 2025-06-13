@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     my_secret = os.environ.get('MY_SECRET', 'default-value')
-    return f'Hello World! Secret is: {my_secret}'
+    return f'Hello World! This is test Page'
 
 if __name__ == '__main__':
     port_str = os.environ.get('PORT', '5000')
