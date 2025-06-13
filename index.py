@@ -9,5 +9,6 @@ def hello_world():
     return f'Hello World! Secret is: {my_secret}'
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port_str = os.environ.get('PORT', '5000')
+    port = int(port_str) if port_str.isdigit() else 5000
     app.run(host='0.0.0.0', port=port, debug=True)
